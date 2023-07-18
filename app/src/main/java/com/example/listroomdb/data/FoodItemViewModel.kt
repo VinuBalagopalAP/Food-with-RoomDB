@@ -5,7 +5,7 @@ import kotlinx.coroutines.launch
 
 class FoodItemViewModel(private val foodItemRepository: FoodItemRepository) : ViewModel() {
 
-    val allFoodItems : LiveData<MutableList<FoodItem>> = foodItemRepository.alFoodItems.asLiveData()
+    val allFoodItems : LiveData<MutableList<FoodItem>> = foodItemRepository.allFoodItems.asLiveData()
 
     // Launching a new coroutine to insert the data in a non-blocking way
     fun insert(foodItem: FoodItem) = viewModelScope.launch {

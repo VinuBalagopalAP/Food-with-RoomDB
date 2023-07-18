@@ -6,12 +6,12 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface FoodItemDao {
 
-    @Query("SELECT * FROM FoodItem ORDER BY name")
+    @Query("SELECT * FROM FoodItem ORDER BY price ASC")
     fun getFoodItems():Flow<MutableList<FoodItem>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insert(foodItem: FoodItem)
+    fun insert(foodItem: FoodItem)
 
     @Delete
-    suspend fun delete(foodItem: FoodItem)
+    fun delete(foodItem: FoodItem)
 }
